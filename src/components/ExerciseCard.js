@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ExerciseCard({exercise, onSetDemo, onAddToWorkout, onRemoveFromWorkout}) {
 
@@ -8,7 +8,7 @@ function ExerciseCard({exercise, onSetDemo, onAddToWorkout, onRemoveFromWorkout}
 
     function handleAdd(e) {
         e.stopPropagation()
-        fetch('http://localhost:8002/workout', {
+        fetch('http://localhost:8000/workout', {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ function ExerciseCard({exercise, onSetDemo, onAddToWorkout, onRemoveFromWorkout}
 
     function handleRemove(e) {
         e.stopPropagation()
-        fetch('http://localhost:8002/workout/' + exercise.id, {
+        fetch('http://localhost:8000/workout/' + exercise.id, {
             method:'DELETE'
         })
         onRemoveFromWorkout(exercise)

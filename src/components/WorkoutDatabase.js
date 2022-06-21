@@ -11,43 +11,63 @@ function WorkoutDatabase() {
     const options = {
       method: 'GET',
       headers: {
-        //API INFO, list by name
+        // API KEY
       }
     };
   
-  function onHandleSubmit(newSearchTerm) {
-            
+    function onHandleSubmit(newSearchTerm) {
+            setDemo([])
             fetch('https://exercisedb.p.rapidapi.com/exercises/name/' + newSearchTerm, options)
             .then(res => res.json())
             .then(data => setExercises(data))
-  }
+    }
 
-  const [demo, setDemo] = useState([])
-  function onSetDemo(newExercise) {
-    setDemo(newExercise)
-  }
+    const [demo, setDemo] = useState([])
+    function onSetDemo(newExercise) {
+        setDemo(newExercise)
+    }
 
-  const [currentWorkout, setCurrentWorkout] = useState([])
-  useEffect(() => {
-    fetch('http://localhost:8002/workout')
-    .then(res => res.json())
-    .then(data => setCurrentWorkout(data))
-  },[])
-  function onAddToWorkout(newExercise) {
-    if(currentWorkout.includes(newExercise)) return null
+    const [currentWorkout, setCurrentWorkout] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:8000/workout')
+        .then(res => res.json())
+        .then(data => setCurrentWorkout(data))
+    },[])
 
-    setCurrentWorkout([...currentWorkout, newExercise])
-  }
+    function onAddToWorkout(newExercise) {
+        if(currentWorkout.includes(newExercise)) return null
 
-  function onRemoveFromWorkout(deletedExercise) {
-    
-    const exercisesToDisplay = currentWorkout.filter(exercise => exercise !== deletedExercise)
-    setCurrentWorkout(exercisesToDisplay)
-  }
+        setCurrentWorkout([...currentWorkout, newExercise])
+    }
+
+    function onRemoveFromWorkout(deletedExercise) {
+        const exercisesToDisplay = currentWorkout.filter(exercise => exercise !== deletedExercise)
+        setCurrentWorkout(exercisesToDisplay)
+    }
+
+    function onHandleFilter(target, equipment) {
+        setDemo([])
+        fetch('https://exercisedb.p.rapidapi.com/exercises', options)
+        .then(response => response.json())
+        .then(data => {
+            if(target === "Target Area") {
+                const exercisesToDisplay = data.filter(exercise => exercise.equipment === equipment)
+                setExercises(exercisesToDisplay)
+            } else if(equipment === "Equipment") {
+                const exercisesToDisplay = data.filter(exercise => exercise.target === target)
+                setExercises(exercisesToDisplay)
+            } else if(target === "Target Area" && equipment === "Equipment") {
+                alert('Please select target area or equipment')
+            } else {
+                const exercisesToDisplay = data.filter(exercise => exercise.target === target && exercise.equipment === equipment)
+                setExercises(exercisesToDisplay)
+            }
+        })    
+    }
 
     return (
         <div>
-            <SearchBar onHandleSubmit={onHandleSubmit} />
+            <SearchBar onHandleSubmit={onHandleSubmit} onHandleFilter={onHandleFilter}/>
             <ExerciseList exercises={exercises} onSetDemo={onSetDemo} onAddToWorkout={onAddToWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
             <Demonstration demo={demo} />
             <MyExercises exercises={currentWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
