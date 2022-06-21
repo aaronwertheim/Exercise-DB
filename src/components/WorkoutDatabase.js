@@ -11,24 +11,15 @@ function WorkoutDatabase() {
     const options = {
       method: 'GET',
       headers: {
-      //
+        //API INFO, list by name
       }
     };
   
-  function onHandleSubmit(newSearchTerm, newBodypart) {
+  function onHandleSubmit(newSearchTerm) {
             
             fetch('https://exercisedb.p.rapidapi.com/exercises/name/' + newSearchTerm, options)
             .then(res => res.json())
-            .then(data => {
-                if(newBodypart === "Target Area") {
-                    setExercises(data)
-                }
-                else {
-                    const exercisesToDisplay = data.filter(exercise => exercise.target === newBodypart)
-                    setExercises(exercisesToDisplay) 
-                }
-                
-            })
+            .then(data => setExercises(data))
   }
 
   const [demo, setDemo] = useState([])

@@ -15,7 +15,7 @@ function SearchBar({onHandleSubmit}) {
         const options = {
             method: 'GET',
             headers: {
-                //
+                //API INFO, List of target muscles
             }
         };
         
@@ -25,18 +25,40 @@ function SearchBar({onHandleSubmit}) {
             .catch(err => console.error(err));
     }, [])
 
+    const [equipmentList, setEquipmentList] = useState([])
+    useEffect(() => {
+        const options = {
+            method: 'GET',
+            headers: {
+                //API INFO, list of equipment
+            }
+        };
+        
+        fetch('https://exercisedb.p.rapidapi.com/exercises/equipmentList', options)
+            .then(response => response.json())
+            .then(response => setEquipmentList(response))
+            .catch(err => console.error(err));
+    }, [])
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input onChange={(e) => {setSearchQuery(e.target.value)}}></input>
                 <button>Search</button>
-                <select onChange={(e) => setTargetArea(e.target.value)}>
-                    <option>Target Area</option>
-                    {targetList.map((bodypart, index) => (
-                         <option key={index}>{bodypart}</option>
-                    ))}
-                </select>
-            </form>
+            </form>    
+            <select onChange={(e) => setTargetArea(e.target.value)}>
+                <option>Target Area</option>
+                {targetList.map((bodypart, index) => (
+                     <option key={index}>{bodypart}</option>
+                ))}
+            </select>
+            <select>
+                <option>Equipment</option>
+                {equipmentList.map((equipment, index) => (
+                    <option key={index}>{equipment}</option>
+                ))}
+            </select>
+            
             
         </div>
     )
