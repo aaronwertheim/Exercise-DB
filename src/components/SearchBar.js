@@ -8,7 +8,7 @@ function SearchBar({onHandleSubmit, onHandleFilter}) {
     const options = {
                 method: 'GET',
                 headers: {
-                    //API KEY
+            // 
                 }
             };
 

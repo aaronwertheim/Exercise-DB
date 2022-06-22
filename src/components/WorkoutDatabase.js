@@ -4,6 +4,15 @@ import SearchBar from './SearchBar'
 import ExerciseList from './ExerciseList'
 import Demonstration from "./Demonstration";
 import MyExercises from "./MyExercises";
+import HomePage from "./HomePage";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink
+  } from "react-router-dom";
+
+  
 
 function WorkoutDatabase() {
 
@@ -11,7 +20,7 @@ function WorkoutDatabase() {
     const options = {
       method: 'GET',
       headers: {
-        // API KEY
+// 
       }
     };
   
@@ -66,12 +75,28 @@ function WorkoutDatabase() {
     }
 
     return (
+        <Router>
         <div>
+        <div id="exercise" class='container'>
+    <nav class="navbar">
+          <NavLink exact to="/">Home</NavLink>
+          <NavLink to="/exercises">Exercises</NavLink>
+          <NavLink to="/myworkouts">My Workouts</NavLink>
+    </nav>
+        </div>
+        <HomePage/>
+        <Switch>
+          <Route path="/exercises">
             <SearchBar onHandleSubmit={onHandleSubmit} onHandleFilter={onHandleFilter}/>
             <ExerciseList exercises={exercises} onSetDemo={onSetDemo} onAddToWorkout={onAddToWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
             <Demonstration demo={demo} />
+          </Route>
+          <Route path="/myworkouts">
             <MyExercises exercises={currentWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
+          </Route>
+        </Switch>
         </div>
+        </Router>
     )
 }
 

@@ -3,8 +3,8 @@ import ExerciseCard from "./ExerciseCard";
 
 function MyExercises({exercises, onRemoveFromWorkout}) {
     return (
-        <div>
-            <h3>My Workout</h3>
+        <div id="myworkouts" class="container">
+            <h1 class="text-center">My Workouts</h1>
             <ul className="myexercises">
                 {exercises.map(exercise => {
                     return <ExerciseCard exercise={exercise} key={exercise.id} onRemoveFromWorkout={onRemoveFromWorkout} />
