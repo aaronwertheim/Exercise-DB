@@ -3,6 +3,7 @@ import ExerciseCard from "./ExerciseCard";
 
 function MyExercises({exercises, onRemoveFromWorkout}) {
     return (
+        <section class="bgimage2">
         <div id="myworkouts" class="container">
             <h1 class="text-center">My Workouts</h1>
             <ul className="myexercises">
@@ -11,7 +12,7 @@ function MyExercises({exercises, onRemoveFromWorkout}) {
                 })}
             </ul>
         </div>
-        
+        </section>
     )
 }
 

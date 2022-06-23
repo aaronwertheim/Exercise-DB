@@ -1,12 +1,31 @@
 .bgimage {
   height:100vh;
-  background: url('https://4kwallpapers.com/images/wallpapers/workout-limitless-endurance-gym-colorful-smoke-3556x2000-929.jpg');
+  background: url('./images/home.jpg');
   background-size:cover;
   position:relative;
 }
 
+.navbar a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding-left:12%; 
+  padding-right: 10%;
+  padding-top: 10px;
+  
+}
+
+.navbar a:hover {
+  font-weight: bold;
+}
+
+
+
 .hero_title {
-  font-size: 8rem;
+  font-size: 100px;
 }
 
 .hero-text {
@@ -20,15 +39,15 @@
 }
 
 
-
 #myworkouts{
-  margin-bottom: 50vh;
+  padding-top: 5%;
   color: aliceblue;
   font-family: 'Courier New', monospace;
+  
 }
 
 body {
-  background-color: #111010;
+  background-color: #242222;
 }
 
 .App {
@@ -42,4 +61,44 @@ body {
 
 .myexercises .searchcard .addbtn {
   display: none;
+}
+
+.Exercise{
+  padding-top: 5%;
+  color: aliceblue;
+  font-family: 'Courier New', monospace;
+
+}
+
+.Demo{
+  padding-top: 5%;
+  color: aliceblue;
+  font-family: 'Courier New', monospace;
+ 
+
+}
+
+.exerciselist{
+  padding-top: 5%;
+  color: aliceblue;
+  font-family: 'Courier New', monospace;
+  
+}
+
+.title {
+font-size: 45px;
+}
+
+.Exercise {
+  height:100vh;
+  background: url('./images/workout.jpg');
+  background-size:cover;
+  position:relative;
+}
+
+.bgimage2{
+  height:100vh;
+  background: url('./images/myworkout.jpg');
+  background-size:cover;
+  position:relative;
 }

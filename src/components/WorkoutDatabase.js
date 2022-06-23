@@ -20,7 +20,7 @@ function WorkoutDatabase() {
     const options = {
       method: 'GET',
       headers: {
-// 
+//
       }
     };
   
@@ -74,20 +74,27 @@ function WorkoutDatabase() {
         })    
     }
 
+    function onRouteChange() {
+        setExercises([])
+            setDemo([])
+    }
+
+
     return (
+        
         <Router>
         <div>
-        <div id="exercise" class='container'>
-    <nav class="navbar">
-          <NavLink exact to="/">Home</NavLink>
-          <NavLink to="/exercises">Exercises</NavLink>
-          <NavLink to="/myworkouts">My Workouts</NavLink>
+    <nav class="navbar fixed-top">
+          <NavLink exact to="/" onClick={onRouteChange}>Home</NavLink>
+          <NavLink to="/exercises"> Search Exercise</NavLink>
+          <NavLink to="/myworkouts" onClick={onRouteChange}>My Workout</NavLink>
     </nav>
-        </div>
-        <HomePage/>
         <Switch>
-          <Route path="/exercises">
-            <SearchBar onHandleSubmit={onHandleSubmit} onHandleFilter={onHandleFilter}/>
+            <Route exact path= "/">
+            <HomePage/>
+            </Route>
+          <Route path="/exercises" >
+            <SearchBar onHandleSubmit={onHandleSubmit} onHandleFilter={onHandleFilter} onRouteChange={onRouteChange}/>
             <ExerciseList exercises={exercises} onSetDemo={onSetDemo} onAddToWorkout={onAddToWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
             <Demonstration demo={demo} />
           </Route>
@@ -97,6 +104,7 @@ function WorkoutDatabase() {
         </Switch>
         </div>
         </Router>
+        
     )
 }
 

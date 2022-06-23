@@ -3,7 +3,7 @@ import ExerciseCard from "./ExerciseCard";
 
 function ExerciseList({exercises, onSetDemo, onAddToWorkout, onRemoveFromWorkout}) {
     return (
-        <div>
+        <div class="exerciselist">
             <h3>Search Results</h3>
             <ul className="searchlist">
                 {exercises.map(exercise => {

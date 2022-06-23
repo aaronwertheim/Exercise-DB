@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
-function SearchBar({onHandleSubmit, onHandleFilter}) {
+function SearchBar({onHandleSubmit, onHandleFilter, onRouteChange}) {
 
     const [searchQuery, setSearchQuery] = useState("")
     const [targetArea, setTargetArea] = useState("Target Area")
@@ -8,7 +14,7 @@ function SearchBar({onHandleSubmit, onHandleFilter}) {
     const options = {
                 method: 'GET',
                 headers: {
-            // 
+//
                 }
             };
 
@@ -37,36 +43,48 @@ function SearchBar({onHandleSubmit, onHandleFilter}) {
         e.preventDefault()
         onHandleFilter(targetArea, equipmentChoice)
     }
+    
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={(e) => {setSearchQuery(e.target.value)}}></input>
-                <button>Search</button>
-            </form>  
-
-            <form onSubmit={handleFilter}>  
-                <select onChange={(e) => setTargetArea(e.target.value)}>
-                    <option>Target Area</option>
-                    {targetList.map((bodypart, index) => (
-                        <option key={index}>{bodypart}</option>
-                    ))}
-                </select>
-
-            
-                <select onChange={(e) => setEquipmentChoice(e.target.value)}>
-                    <option>Equipment</option>
-                    {equipmentList.map((equipment, index) => (
-                        <option key={index}>{equipment}</option>
-                    ))}
-                </select>
-                <button>Search</button>
-            </form>
-            
-            
-            
-        </div>
-    )
-}
+        <Router>
+        <div class="Exercise">
+        <h2 class="title">Exercises</h2>
+      <nav>
+          <span>
+            <Link to="/search" onClick={onRouteChange}>Keyword Search</Link>
+          </span>
+          <span>
+            <Link to="/filter" onClick={onRouteChange}>Filter</Link>
+          </span>
+      </nav>
+      <Switch>
+        <Route path="/search">
+        <form onSubmit={handleSubmit}>
+            <input onChange={(e) => {setSearchQuery(e.target.value)}}></input>
+            <button>Search</button>
+        </form>
+        </Route>
+        <Route path="/filter">
+        <form onSubmit={handleFilter}>
+            <select onChange={(e) => setTargetArea(e.target.value)}>
+                <option>Target Area</option>
+                {targetList.map((bodypart, index) => (
+                    <option key={index}>{bodypart}</option>
+                ))}
+            </select>
+            <select onChange={(e) => setEquipmentChoice(e.target.value)}>
+                <option>Equipment</option>
+                {equipmentList.map((equipment, index) => (
+                    <option key={index}>{equipment}</option>
+                ))}
+            </select>
+            <button>Search</button>
+        </form>
+        </Route>
+      </Switch>
+    </div>
+  </Router>
+    )}
 
 export default SearchBar
+
