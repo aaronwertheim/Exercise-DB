@@ -7,46 +7,6 @@
       "id": "1634",
       "name": "cable lying bicep curl",
       "target": "biceps"
-    },
-    {
-      "bodyPart": "upper arms",
-      "equipment": "cable",
-      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1638.gif",
-      "id": "1638",
-      "name": "cable pulldown bicep curl",
-      "target": "biceps"
-    },
-    {
-      "bodyPart": "upper arms",
-      "equipment": "dumbbell",
-      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1649.gif",
-      "id": "1649",
-      "name": "dumbbell alternating bicep curl with leg raised on exercise ball",
-      "target": "biceps"
-    },
-    {
-      "bodyPart": "upper arms",
-      "equipment": "dumbbell",
-      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1650.gif",
-      "id": "1650",
-      "name": "dumbbell alternating seated bicep curl on exercise ball",
-      "target": "biceps"
-    },
-    {
-      "bodyPart": "upper arms",
-      "equipment": "dumbbell",
-      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1651.gif",
-      "id": "1651",
-      "name": "dumbbell bicep curl lunge with bowling motion",
-      "target": "biceps"
-    },
-    {
-      "bodyPart": "upper arms",
-      "equipment": "dumbbell",
-      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1652.gif",
-      "id": "1652",
-      "name": "dumbbell bicep curl on exercise ball with leg raised",
-      "target": "biceps"
     }
   ]
 }

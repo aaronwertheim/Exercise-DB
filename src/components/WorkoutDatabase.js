@@ -93,14 +93,16 @@ function WorkoutDatabase() {
             <Route exact path= "/">
             <HomePage/>
             </Route>
+          <Route path="/myworkouts">
+            <MyExercises exercises={currentWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
+          </Route>
+          <div class="Exercise">
           <Route path="/exercises" >
             <SearchBar onHandleSubmit={onHandleSubmit} onHandleFilter={onHandleFilter} onRouteChange={onRouteChange}/>
             <ExerciseList exercises={exercises} onSetDemo={onSetDemo} onAddToWorkout={onAddToWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
             <Demonstration demo={demo} />
           </Route>
-          <Route path="/myworkouts">
-            <MyExercises exercises={currentWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
-          </Route>
+          </div>
         </Switch>
         </div>
         </Router>

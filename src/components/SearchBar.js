@@ -47,38 +47,38 @@ function SearchBar({onHandleSubmit, onHandleFilter, onRouteChange}) {
 
     return (
         <Router>
-        <div class="Exercise">
-        <h2 class="title">Exercises</h2>
-      <nav>
+        <div>
+        <h2 class="title">EXERCISES</h2>
+      <nav class="searchNavBar">
           <span>
-            <Link to="/search" onClick={onRouteChange}>Keyword Search</Link>
+            <Link to="/search" onClick={onRouteChange}>Search by Name</Link>
           </span>
           <span>
-            <Link to="/filter" onClick={onRouteChange}>Filter</Link>
+            <Link to="/filter" onClick={onRouteChange}>Search by Equipment</Link>
           </span>
       </nav>
       <Switch>
         <Route path="/search">
         <form onSubmit={handleSubmit}>
-            <input onChange={(e) => {setSearchQuery(e.target.value)}}></input>
-            <button>Search</button>
+            <input onChange={(e) => {setSearchQuery(e.target.value)}} class="bar"></input>
+            <button class="searchbtn">Search</button>
         </form>
         </Route>
         <Route path="/filter">
         <form onSubmit={handleFilter}>
-            <select onChange={(e) => setTargetArea(e.target.value)}>
+            <select onChange={(e) => setTargetArea(e.target.value)} class="bar">
                 <option>Target Area</option>
                 {targetList.map((bodypart, index) => (
                     <option key={index}>{bodypart}</option>
                 ))}
             </select>
-            <select onChange={(e) => setEquipmentChoice(e.target.value)}>
+            <select onChange={(e) => setEquipmentChoice(e.target.value)}class="bar">
                 <option>Equipment</option>
                 {equipmentList.map((equipment, index) => (
                     <option key={index}>{equipment}</option>
                 ))}
             </select>
-            <button>Search</button>
+            <button class="searchbtn">Search</button>
         </form>
         </Route>
       </Switch>

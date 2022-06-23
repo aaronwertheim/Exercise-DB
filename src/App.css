@@ -25,7 +25,8 @@
 
 
 .hero_title {
-  font-size: 100px;
+  font-size: 700%;
+  
 }
 
 .hero-text {
@@ -42,7 +43,6 @@
 #myworkouts{
   padding-top: 5%;
   color: aliceblue;
-  font-family: 'Courier New', monospace;
   
 }
 
@@ -66,27 +66,35 @@ body {
 .Exercise{
   padding-top: 5%;
   color: aliceblue;
-  font-family: 'Courier New', monospace;
+  
 
 }
 
 .Demo{
-  padding-top: 5%;
+  padding-top: 20px;
   color: aliceblue;
-  font-family: 'Courier New', monospace;
- 
-
+  text-decoration: underline;
 }
 
-.exerciselist{
-  padding-top: 5%;
+.searchlist{
   color: aliceblue;
-  font-family: 'Courier New', monospace;
-  
+  overflow-y: scroll;
+  max-height: 500px;
+  background-color: #053da3;
+  width: 700px;
+  margin:auto;
+  border-radius: 25px;
+  margin-top: 15px;
+}
+
+.searchlist::-webkit-scrollbar{
+  display: none;
 }
 
 .title {
 font-size: 45px;
+font-weight: bold;
+opacity: 0.65;
 }
 
 .Exercise {
@@ -101,4 +109,79 @@ font-size: 45px;
   background: url('./images/myworkout.jpg');
   background-size:cover;
   position:relative;
+}
+
+.searchcard{
+  list-style: none;
+}
+
+.searchcard:hover{
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.searchNavBar a{
+  text-decoration: none;
+  color:aliceblue;
+  margin: 0px 10px 0px 10px;
+  font-size: 20px;
+}
+
+.searchNavBar a:hover{
+  font-weight: bold;
+
+}
+
+.myexercises {
+  background-color: rgb(226, 166, 12);
+  width: 700px;
+  margin:auto;
+  border-radius: 25px;
+  margin-top: 15px;
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+.myexercises::-webkit-scrollbar{
+  display: none;
+}
+
+.text-center {
+font-size: 45px;
+font-weight: bold;
+}
+
+.addbtn{
+  margin: 5px 5px 5px 5px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: rgb(4, 29, 112);
+  color: aliceblue;
+  border-color: rgb(4, 29, 112);
+}
+
+.deletebtn{
+  margin: 5px 5px 5px 5px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: darkgoldenrod;
+  color: aliceblue;
+  border-color: darkgoldenrod;
+}
+
+.results{
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+.gif{
+  border-radius: 25px;
+}
+.bar{
+border-radius: 9px;
+}
+
+.searchbtn{
+  border-radius: 9px;
+  margin-left: 10px;
 }
