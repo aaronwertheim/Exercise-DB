@@ -1,12 +1,3 @@
 {
-  "workout": [
-    {
-      "bodyPart": "upper arms",
-      "equipment": "cable",
-      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1634.gif",
-      "id": "1634",
-      "name": "cable lying bicep curl",
-      "target": "biceps"
-    }
-  ]
+  "workout": []
 }

@@ -20,7 +20,8 @@ function WorkoutDatabase() {
     const options = {
       method: 'GET',
       headers: {
-//
+        'X-RapidAPI-Key': '56937c8580msh33b28bde42bdc9fp106d6ejsn3fe184dea559',
+        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
       }
     };
   
@@ -100,7 +101,7 @@ function WorkoutDatabase() {
           <Route path="/exercises" >
             <SearchBar onHandleSubmit={onHandleSubmit} onHandleFilter={onHandleFilter} onRouteChange={onRouteChange}/>
             <ExerciseList exercises={exercises} onSetDemo={onSetDemo} onAddToWorkout={onAddToWorkout} onRemoveFromWorkout={onRemoveFromWorkout}/>
-            <Demonstration demo={demo} />
+            <Demonstration demo={demo} exercises={exercises}/>
           </Route>
           </div>
         </Switch>
