@@ -14,8 +14,7 @@ function SearchBar({onHandleSubmit, onHandleFilter, onRouteChange}) {
     const options = {
                 method: 'GET',
                 headers: {
-                  'X-RapidAPI-Key': '56937c8580msh33b28bde42bdc9fp106d6ejsn3fe184dea559',
-                  'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                        //
                         }
             };
 
